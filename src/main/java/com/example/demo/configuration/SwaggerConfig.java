@@ -26,7 +26,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Endpoints for Synonyms REST API")
+                .title("Student App")
                 .build();
     }
 }

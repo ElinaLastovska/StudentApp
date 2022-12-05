@@ -20,28 +20,34 @@ public class AppController {
     }
 
 
-    @PutMapping("/add/student")
+    @PutMapping("/add-student")
     @ResponseStatus(HttpStatus.CREATED)
     public Student addStudent(@RequestBody AddStudentRequest addStudentRequest) {
         return this.appService.addStudent(addStudentRequest);
     }
 
-    @PutMapping("/add/tutor")
+    @PutMapping("/add-tutor")
     @ResponseStatus(HttpStatus.CREATED)
     public Tutor addTutor(@RequestBody AddTutorRequest addTutorRequest) {
         return this.appService.addTutor(addTutorRequest);
     }
 
-    @PutMapping("/add/course")
+    @PutMapping("/add-course")
     @ResponseStatus(HttpStatus.CREATED)
     public Course addCourse(@RequestBody AddCourseRequest addCourseRequest) {
         return this.appService.addCourse(addCourseRequest);
     }
 
-    @GetMapping("/getstudentcourses/{id}")
+    @GetMapping("/get-student-courses/{id}")
     @ResponseStatus(HttpStatus.OK)
     public List<Course> searchStudentsCourses(@PathVariable Long id) {
         return appService.searchStudentsCourses(id);
+    }
+
+    @PutMapping("/add-course-to-student")
+    @ResponseStatus(HttpStatus.OK)
+    public Student addCourseToStudent(@RequestBody Long courseId, Long studentId){
+        return appService.addCourseToStudent(courseId, studentId);
     }
 
 }

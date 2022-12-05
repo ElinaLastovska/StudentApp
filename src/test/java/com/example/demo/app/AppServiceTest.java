@@ -103,4 +103,23 @@ public class AppServiceTest {
 
     }
 
+    @Test
+    public void testAddCourseToStudent() {
+        Tutor tutorForStudent = new Tutor(1L, "Maisina", "Bildite");
+
+        List<Student> studentList = new ArrayList<>();
+        Course courseForStudent = new Course(2L, "Physics", tutorForStudent, studentList);
+
+        List<Course> coursesAttending = new ArrayList<>();
+        Student testStudent = new Student(1L, "Tumbins", "Cepumis", coursesAttending);
+
+        Optional<Student> optionalTestStudent = Optional.of(testStudent);
+        when(studentRepository.findById(1L)).thenReturn(optionalTestStudent);
+
+        Optional<Course> optionalCourseForStudent = Optional.of(courseForStudent);
+        when(courseRepository.findById(2L)).thenReturn(optionalCourseForStudent);
+
+        appService.addCourseToStudent(2L, 1L);
+
+    }
 }

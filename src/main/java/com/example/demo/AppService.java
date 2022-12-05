@@ -8,6 +8,8 @@ import com.example.demo.dto.AddStudentRequest;
 import com.example.demo.dto.AddTutorRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
@@ -61,4 +63,15 @@ public class AppService {
         Student student = maybeStudent.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Student not found"));
         return student.getCoursesAttending();
     }
+
+    public Student addCourseToStudent(@RequestBody Long courseId, Long studentId){
+        Optional<Student> maybeStudent = studentRepository.findById(studentId);
+        Student student = maybeStudent.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Student not found"));
+        Optional<Course> maybeCourse = courseRepository.findById(courseId);
+        Course course = maybeCourse.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Course not found"));
+        student.getCoursesAttending().add(course);
+        return student;
+    }
+
+
 }
