@@ -61,16 +61,6 @@ And it will save to the H2 tutor object ->
   {
   "courseId": 0,
   "courseName": "string",
-  "studentsAttending": [
-    {
-      "coursesAttending": [
-        null
-      ],
-      "studentId": 0,
-      "studentName": "string",
-      "studentSurname": "string"
-    }
-  ],
   "tutor": {
     "tutorId": 0,
     "tutorName": "string",
@@ -80,7 +70,7 @@ And it will save to the H2 tutor object ->
 ```
 As you can see, this object is a bit more complex. But no worries! It just looks that way! 
 
-The course just has `Course name`, `Course ID`, a List of Students that are attending this course as `studentsAttending` and `Tutor` that is teaching it!
+The course just has `Course name`, `Course ID` and `Tutor` that is teaching it!
 It will add Tutor automatically by the ID that you give (If it exists) but students in the list `studentsAttending` you can add later!
 
 #### And finally you can add a student.
@@ -101,9 +91,6 @@ And it will save to the H2 student object ->
     {
       "courseId": 0,
       "courseName": "string",
-      "studentsAttending": [
-        null
-      ],
       "tutor": {
         "tutorId": 0,
         "tutorName": "string",
@@ -126,7 +113,13 @@ I think that you could guess what those do from function names.
 But let me explain!
 
 #### add-course-to-student
-You need to give the existing `courseId` and existing `studentId`.
+You need to give the existing `courseId` and existing `studentId`, as shown in json example.
+```
+{
+  "courseId": 0,
+  "studentId": 0
+}
+```
 This function will add this course to the students' list of `coursesAttending`.
 #### searchStudentsCourses
 You need to give the existing `studentId` that you want to find.
