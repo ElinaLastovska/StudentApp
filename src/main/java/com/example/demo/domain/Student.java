@@ -10,11 +10,9 @@ import java.util.Objects;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long studentId;
-
-    String studentName;
-
-    String studentSurname;
+    private Long studentId;
+    private String studentName;
+    private String studentSurname;
 
     @ManyToMany
     @JoinTable(

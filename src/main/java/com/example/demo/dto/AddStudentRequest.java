@@ -4,14 +4,13 @@ import java.util.Objects;
 
 public class AddStudentRequest {
 
-    String StudentName;
-    String StudentSurname;
+    private String studentName;
+    private String studentSurname;
 
 
     public AddStudentRequest(String studentName, String studentSurname) {
-        StudentName = studentName;
-        StudentSurname = studentSurname;
-
+        this.studentName = studentName;
+        this.studentSurname = studentSurname;
     }
 
     public AddStudentRequest() {
@@ -19,19 +18,19 @@ public class AddStudentRequest {
     }
 
     public String getStudentName() {
-        return StudentName;
+        return studentName;
     }
 
     public void setStudentName(String studentName) {
-        StudentName = studentName;
+        this.studentName = studentName;
     }
 
     public String getStudentSurname() {
-        return StudentSurname;
+        return studentSurname;
     }
 
     public void setStudentSurname(String studentSurname) {
-        StudentSurname = studentSurname;
+        this.studentSurname = studentSurname;
     }
 
 
@@ -39,11 +38,11 @@ public class AddStudentRequest {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof AddStudentRequest that)) return false;
-        return StudentName.equals(that.StudentName) && StudentSurname.equals(that.StudentSurname);
+        return studentName.equals(that.studentName) && studentSurname.equals(that.studentSurname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(StudentName, StudentSurname);
+        return Objects.hash(studentName, studentSurname);
     }
 }

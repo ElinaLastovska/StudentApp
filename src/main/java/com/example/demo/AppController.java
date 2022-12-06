@@ -4,6 +4,7 @@ import com.example.demo.domain.Course;
 import com.example.demo.domain.Student;
 import com.example.demo.domain.Tutor;
 import com.example.demo.dto.AddCourseRequest;
+import com.example.demo.dto.AddCourseToStudent;
 import com.example.demo.dto.AddStudentRequest;
 import com.example.demo.dto.AddTutorRequest;
 import org.springframework.http.HttpStatus;
@@ -46,8 +47,8 @@ public class AppController {
 
     @PutMapping("/add-course-to-student")
     @ResponseStatus(HttpStatus.OK)
-    public Student addCourseToStudent(@RequestBody Long courseId, Long studentId){
-        return appService.addCourseToStudent(courseId, studentId);
+    public Student addCourseToStudent(@RequestBody AddCourseToStudent addCourseToStudent){
+        return appService.addCourseToStudent(addCourseToStudent);
     }
 
 }

@@ -10,11 +10,8 @@ public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long courseId;
-
-    String courseName;
-    @ManyToMany(mappedBy = "CoursesAttending")
-    List<Student> studentsAttending;
+    private Long courseId;
+    private String courseName;
     @ManyToOne
     @JoinColumn(name = "tutor_id")
     private Tutor tutor;
@@ -22,11 +19,11 @@ public class Course {
     public Course() {
     }
 
-    public Course(Long courseId, String courseName, Tutor tutor, List<Student> studentsAttending) {
+    public Course(Long courseId, String courseName, Tutor tutor) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.tutor = tutor;
-        this.studentsAttending = studentsAttending;
+
     }
 
     public Long getCourseId() {
@@ -53,23 +50,17 @@ public class Course {
         this.tutor = tutor;
     }
 
-    public List<Student> getStudentsAttending() {
-        return studentsAttending;
-    }
 
-    public void setStudentsAttending(List<Student> studentsAttending) {
-        this.studentsAttending = studentsAttending;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Course course)) return false;
-        return courseId.equals(course.courseId) && courseName.equals(course.courseName) && tutor.equals(course.tutor) && studentsAttending.equals(course.studentsAttending);
+        return courseId.equals(course.courseId) && courseName.equals(course.courseName) && tutor.equals(course.tutor);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(courseId, courseName, tutor, studentsAttending);
+        return Objects.hash(courseId, courseName, tutor);
     }
 }

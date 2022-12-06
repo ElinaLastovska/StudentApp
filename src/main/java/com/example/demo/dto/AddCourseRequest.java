@@ -3,8 +3,8 @@ package com.example.demo.dto;
 import java.util.Objects;
 
 public class AddCourseRequest {
-    String name;
-    Long tutorId;
+    private String name;
+    private Long tutorId;
 
     public AddCourseRequest(String name, Long tutorId) {
         this.name = name;
@@ -12,7 +12,6 @@ public class AddCourseRequest {
     }
 
     public AddCourseRequest() {
-
     }
 
     public String getName() {

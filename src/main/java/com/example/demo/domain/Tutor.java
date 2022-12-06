@@ -7,11 +7,11 @@ import java.util.Objects;
 public class Tutor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long tutorId;
+    private Long tutorId;
     @Column
-    String tutorName;
+    private String tutorName;
     @Column
-    String tutorSurname;
+    private String tutorSurname;
 
 
     public Tutor(Long tutorId, String tutorName, String tutorSurname) {
