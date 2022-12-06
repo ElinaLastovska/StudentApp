@@ -84,7 +84,6 @@ public class AppServiceTest {
     @Test
     public void testSearchStudentsCourses() {
 
-        List<Student> studentList = new ArrayList<>();
         Tutor tutorForStudent = new Tutor(2L, "Tumbins", "Kastitis");
         Course courseForStudent = new Course(1L, "Geography", tutorForStudent);
         List<Course> coursesAttending = new ArrayList<>();
@@ -101,7 +100,6 @@ public class AppServiceTest {
     @Test
     public void testAddCourseToStudent() {
         Tutor tutorForStudent = new Tutor(1L, "Maisina", "Bildite");
-        List<Student> studentList = new ArrayList<>();
         Course courseForStudent = new Course(2L, "Physics", tutorForStudent);
         List<Course> coursesAttending = new ArrayList<>();
         Student testStudent = new Student(1L, "Tumbins", "Cepumis", coursesAttending);
