@@ -74,14 +74,14 @@ The course just has `Course name`, `Course ID` and `Tutor` that is teaching it!
 It will add Tutor automatically by the ID that you give (If it exists) but students in the list `studentsAttending` you can add later!
 
 #### And finally you can add a student.
-To add Student you need to indicate `studentName` and `studentName` as String values, as shown in json example.
+To add Student you need to indicate `studentName` and `studentSurname` as String values, as shown in json example.
 
 > ID generates automatically by H2
 
 ```
 {
   "studentName": "string",
-  "studentName": "string"
+  "studentSurname": "string"
 }
 ```
 And it will save to the H2 student object ->
